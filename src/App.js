@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import HeroSection from './sections/HeroSection';
 import ProblemSection from './sections/ProblemSection';
+import SolutionSection from './sections/SolutionSection';
 
 /**
  * Pikmi Landing Page
@@ -15,6 +16,7 @@ function App() {
       <main>
         <HeroSection />
         <ProblemSection />
+        <SolutionSection />
       </main>
     </div>
   );
