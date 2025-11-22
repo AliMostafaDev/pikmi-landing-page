@@ -1,5 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
+import HeroSection from './sections/HeroSection';
+import ProblemSection from './sections/ProblemSection';
 
 /**
  * Pikmi Landing Page
@@ -11,7 +13,8 @@ function App() {
     <div className="App">
       <Navbar />
       <main>
-        {/* Landing page sections will be added here */}
+        <HeroSection />
+        <ProblemSection />
       </main>
     </div>
   );
