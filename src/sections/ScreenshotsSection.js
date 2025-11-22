@@ -6,7 +6,7 @@ import { Container, Carousel } from 'react-bootstrap';
  */
 function ScreenshotsSection() {
   return (
-    <section id="screenshots" className="py-5" style={{ background: 'linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%)' }}>
+    <section id="screenshots" className="py-5" style={{ background: '#ffffff' }}>
       <Container>
         <div className="text-center mb-5">
           <h2 className="display-5 fw-bold mb-3">App Screenshots</h2>

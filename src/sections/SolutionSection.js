@@ -6,25 +6,29 @@ import { Container, Row, Col } from 'react-bootstrap';
  */
 function SolutionSection() {
   return (
-    <section id="solution" className="py-5">
+    <section 
+      id="solution" 
+      className="py-5"
+      style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
+    >
       <Container>
         <Row className="align-items-center">
           {/* Left Column - Explanation Text */}
-          <Col md={6} className="mb-4 mb-md-0">
-            <h2 className="display-5 fw-bold mb-4">
+          <Col md={6} className="mb-4 mb-md-0 text-white">
+            <h2 className="display-5 fw-bold mb-4 text-white">
               How Pikmi Solves Transportation Problems
             </h2>
-            <p className="lead mb-4">
+            <p className="lead mb-4 text-white" style={{ opacity: 0.95 }}>
               Pikmi transforms transportation by connecting neighbors and creating a sustainable 
               community-driven ride-sharing ecosystem.
             </p>
             
             <div className="mb-4">
-              <h4 className="fw-semibold mb-3">
-                <i className="bi bi-car-front-fill text-primary me-2"></i>
+              <h4 className="fw-semibold mb-3 text-white">
+                <i className="bi bi-car-front-fill text-white me-2"></i>
                 Community Ride-Sharing
               </h4>
-              <p className="text-muted">
+              <p className="text-white" style={{ opacity: 0.9 }}>
                 Share rides with neighbors going the same direction. Whether you're a driver 
                 offering a seat or a passenger looking for a ride, Pikmi connects you with 
                 people in your community. Reduce costs, share expenses, and build meaningful 
@@ -33,11 +37,11 @@ function SolutionSection() {
             </div>
 
             <div className="mb-4">
-              <h4 className="fw-semibold mb-3">
+              <h4 className="fw-semibold mb-3 text-white">
                 <i className="bi bi-coin text-warning me-2"></i>
                 Earn Pikmi Coins
               </h4>
-              <p className="text-muted">
+              <p className="text-white" style={{ opacity: 0.9 }}>
                 Every ride you share or take earns you Pikmi Coins—a community currency that 
                 rewards participation. Use your coins to pay for future rides, or help others 
                 by offering rides. It's not real money, but a token of appreciation that 
@@ -46,11 +50,11 @@ function SolutionSection() {
             </div>
 
             <div>
-              <h4 className="fw-semibold mb-3">
-                <i className="bi bi-heart-fill text-danger me-2"></i>
+              <h4 className="fw-semibold mb-3 text-white">
+                <i className="bi bi-heart-fill text-white me-2"></i>
                 Build Community
               </h4>
-              <p className="text-muted">
+              <p className="text-white" style={{ opacity: 0.9 }}>
                 Pikmi goes beyond transportation—it's about building stronger neighborhoods. 
                 Meet your neighbors, help each other out, and create a more connected, 
                 sustainable community where everyone benefits.

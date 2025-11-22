@@ -30,11 +30,11 @@ function TeamSection() {
   ];
 
   return (
-    <section id="team" className="py-5" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%)' }}>
+    <section id="team" className="py-5" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
       <Container>
         <div className="text-center mb-5">
-          <h2 className="display-5 fw-bold mb-3">Our Team</h2>
-          <p className="lead text-muted">
+          <h2 className="display-5 fw-bold mb-3 text-white">Our Team</h2>
+          <p className="lead text-white" style={{ opacity: 0.95 }}>
             Meet the talented developers behind Pikmi
           </p>
         </div>
@@ -43,10 +43,11 @@ function TeamSection() {
           {teamMembers.map((member, index) => (
             <Col key={index} xs={12} md={6} lg={4}>
               <Card 
-                className="h-100 border-0 shadow-sm text-center position-relative overflow-hidden"
+                className="h-100 border-0 shadow-lg text-center position-relative overflow-hidden"
                 style={{
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  background: 'rgba(255, 255, 255, 0.95)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-10px)';

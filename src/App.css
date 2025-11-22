@@ -74,3 +74,85 @@
   background-color: rgba(255, 255, 255, 1);
   transform: scale(1.2);
 }
+
+/* Responsive Layout */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App main {
+  flex: 1;
+  padding-top: 76px; /* Account for fixed navbar */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .App main {
+    padding-top: 56px; /* Smaller navbar on mobile */
+  }
+  
+  /* Ensure all sections are responsive */
+  section {
+    scroll-margin-top: 60px;
+  }
+  
+  /* Improve mobile spacing */
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .App main {
+    padding-top: 70px;
+  }
+  
+  section {
+    scroll-margin-top: 70px;
+  }
+}
+
+/* Smooth scroll enhancement */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Ensure images and media are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve text readability on small screens */
+@media (max-width: 576px) {
+  .display-5 {
+    font-size: 2rem !important;
+  }
+  
+  .lead {
+    font-size: 1rem !important;
+  }
+}
+
+/* Navbar styling */
+.navbar {
+  z-index: 1030;
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-nav .nav-link:hover {
+  color: rgba(255, 255, 255, 0.8) !important;
+}

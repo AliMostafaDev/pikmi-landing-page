@@ -6,7 +6,11 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
  */
 function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-5 bg-light">
+    <section 
+      id="how-it-works" 
+      className="py-5"
+      style={{ background: '#f8f9fa' }}
+    >
       <Container>
         <div className="text-center mb-5">
           <h2 className="display-5 fw-bold mb-3">How It Works</h2>

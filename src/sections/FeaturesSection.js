@@ -6,11 +6,15 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
  */
 function FeaturesSection() {
   return (
-    <section id="features" className="py-5">
+    <section 
+      id="features" 
+      className="py-5"
+      style={{ background: 'linear-gradient(135deg, #7c3aed 0%, #6366f1 100%)' }}
+    >
       <Container>
         <div className="text-center mb-5">
-          <h2 className="display-5 fw-bold mb-3">Key Features</h2>
-          <p className="lead text-muted">
+          <h2 className="display-5 fw-bold mb-3 text-white">Key Features</h2>
+          <p className="lead text-white" style={{ opacity: 0.95 }}>
             Everything you need for seamless community ride-sharing
           </p>
         </div>
@@ -18,7 +22,7 @@ function FeaturesSection() {
         <Row className="g-4">
           {/* Feature 1: Smart Matching Algorithm */}
           <Col xs={12} md={6} lg={4}>
-            <Card className="h-100 border-0 shadow-sm">
+            <Card className="h-100 border-0 shadow-lg" style={{ background: 'rgba(255, 255, 255, 0.95)' }}>
               <Card.Body className="p-4">
                 <div className="mb-3">
                   <i className="bi bi-diagram-3 text-primary" style={{ fontSize: '3rem' }}></i>

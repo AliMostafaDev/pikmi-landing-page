@@ -12,7 +12,11 @@ function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-5">
+    <section 
+      id="contact" 
+      className="py-5"
+      style={{ background: '#f8f9fa' }}
+    >
       <Container>
         <div className="text-center mb-5">
           <h2 className="display-5 fw-bold mb-3">Get In Touch</h2>

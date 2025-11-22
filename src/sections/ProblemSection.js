@@ -6,7 +6,11 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
  */
 function ProblemSection() {
   return (
-    <section id="problems" className="py-5 bg-light">
+    <section 
+      id="problems" 
+      className="py-5"
+      style={{ background: '#ffffff' }}
+    >
       <Container>
         <Row className="g-4">
           {/* Problem Card 1: High Transportation Cost */}
