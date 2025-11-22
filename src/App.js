@@ -6,6 +6,7 @@ import SolutionSection from './sections/SolutionSection';
 import HowItWorks from './sections/HowItWorks';
 import FeaturesSection from './sections/FeaturesSection';
 import ScreenshotsSection from './sections/ScreenshotsSection';
+import TeamSection from './sections/TeamSection';
 
 /**
  * Pikmi Landing Page
@@ -23,6 +24,7 @@ function App() {
         <HowItWorks />
         <FeaturesSection />
         <ScreenshotsSection />
+        <TeamSection />
       </main>
     </div>
   );
