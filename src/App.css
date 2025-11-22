@@ -1,0 +1,76 @@
+/* Screenshots Carousel Fix */
+#screenshots .carousel {
+  width: 100% !important;
+  position: relative;
+}
+
+#screenshots .carousel-inner {
+  width: 100% !important;
+  position: relative;
+}
+
+#screenshots .carousel-item {
+  width: 100% !important;
+  position: relative;
+}
+
+#screenshots .carousel-control-prev,
+#screenshots .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#screenshots .carousel-control-prev {
+  left: 20px;
+}
+
+#screenshots .carousel-control-next {
+  right: 20px;
+}
+
+#screenshots .carousel-control-prev:hover,
+#screenshots .carousel-control-next:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+  background: rgba(255, 255, 255, 1);
+}
+
+#screenshots .carousel-control-prev-icon,
+#screenshots .carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
+#screenshots .carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  margin-bottom: 0;
+  z-index: 10;
+}
+
+#screenshots .carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+#screenshots .carousel-indicators .active {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.2);
+}
