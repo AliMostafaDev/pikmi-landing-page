@@ -1,4 +1,5 @@
 import './App.css';
+import Navbar from './components/Navbar';
 
 /**
  * Pikmi Landing Page
@@ -8,7 +9,10 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      {/* Landing page sections will be added here */}
+      <Navbar />
+      <main>
+        {/* Landing page sections will be added here */}
+      </main>
     </div>
   );
 }
