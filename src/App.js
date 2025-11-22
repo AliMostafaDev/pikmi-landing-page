@@ -1,5 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import HeroSection from './sections/HeroSection';
 import ProblemSection from './sections/ProblemSection';
 import SolutionSection from './sections/SolutionSection';
@@ -7,6 +8,7 @@ import HowItWorks from './sections/HowItWorks';
 import FeaturesSection from './sections/FeaturesSection';
 import ScreenshotsSection from './sections/ScreenshotsSection';
 import TeamSection from './sections/TeamSection';
+import ContactSection from './sections/ContactSection';
 
 /**
  * Pikmi Landing Page
@@ -25,7 +27,9 @@ function App() {
         <FeaturesSection />
         <ScreenshotsSection />
         <TeamSection />
+        <ContactSection />
       </main>
+      <Footer />
     </div>
   );
 }
