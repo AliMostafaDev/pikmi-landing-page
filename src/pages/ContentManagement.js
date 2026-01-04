@@ -37,7 +37,7 @@ import {
   Image as ImageIcon
 } from '@mui/icons-material';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://pikmi-landing-page-backend-production.up.railway.app/api';
 
 function ContentManagement() {
   const theme = useTheme();

@@ -43,7 +43,7 @@ function DashboardLayout() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/admin/me', {
+        const response = await fetch('https://pikmi-landing-page-backend-production.up.railway.app/api/admin/me', {
           credentials: 'include',
         });
 
