@@ -1,181 +1,128 @@
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  useTheme,
+  Chip
+} from '@mui/material';
+import { Search, CheckCircle, DirectionsCar, AccountBalanceWallet } from '@mui/icons-material';
 
-/**
- * How It Works Section Component
- * Displays 4 steps of using Pikmi platform
- */
 function HowItWorks() {
+  const theme = useTheme();
+
+  const steps = [
+    {
+      icon: <Search sx={{ fontSize: 40 }} />,
+      color: 'primary',
+      step: 1,
+      title: 'Request Ride',
+      description: 'Post your ride request or offer a ride. Specify your destination, time, and preferences.',
+    },
+    {
+      icon: <CheckCircle sx={{ fontSize: 40 }} />,
+      color: 'success',
+      step: 2,
+      title: 'Get Matched',
+      description: 'Our smart matching system connects you with compatible riders or drivers in your area.',
+    },
+    {
+      icon: <DirectionsCar sx={{ fontSize: 40 }} />,
+      color: 'info',
+      step: 3,
+      title: 'Ride Together',
+      description: 'Enjoy your journey with community members. Share stories, build connections, and travel sustainably.',
+    },
+    {
+      icon: <AccountBalanceWallet sx={{ fontSize: 40 }} />,
+      color: 'warning',
+      step: 4,
+      title: 'Earn/Spend Coins',
+      description: 'Earn Pikmi Coins for every ride you share. Use them to pay for future rides or help others in the community.',
+    },
+  ];
+
   return (
-    <section 
-      id="how-it-works" 
-      className="py-5"
-      style={{ background: '#f8f9fa' }}
+    <Box
+      id="how-it-works"
+      sx={{
+        py: { xs: 6, md: 10 },
+        backgroundColor: theme.palette.background.default,
+      }}
     >
-      <Container>
-        <div className="text-center mb-5">
-          <h2 className="display-5 fw-bold mb-3">How It Works</h2>
-          <p className="lead text-muted">
-            Get started with Pikmi in four simple steps
-          </p>
-        </div>
+      <Container maxWidth="lg">
+        <Typography
+          variant="h2"
+          component="h2"
+          align="center"
+          sx={{ mb: 2, fontWeight: 700 }}
+        >
+          How It Works
+        </Typography>
+        <Typography
+          variant="h6"
+          align="center"
+          color="text.secondary"
+          sx={{ mb: 6 }}
+        >
+          Get started with Pikmi in four simple steps
+        </Typography>
 
-        <Row className="g-4">
-          {/* Step 1: Request Ride */}
-          <Col xs={6} md={3}>
-            <Card 
-              className="h-100 text-center border-0 shadow-sm position-relative overflow-hidden"
-              style={{
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                cursor: 'pointer'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-10px)';
-                e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 0.125rem 0.25rem rgba(0,0,0,0.075)';
-              }}
-            >
-              <Card.Body className="p-4">
-                <div className="mb-3">
-                  <div 
-                    className="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center"
-                    style={{ width: '80px', height: '80px' }}
+        <Grid container spacing={4}>
+          {steps.map((step) => (
+            <Grid item xs={6} md={3} key={step.step}>
+              <Card
+                elevation={2}
+                sx={{
+                  height: '100%',
+                  textAlign: 'center',
+                  transition: 'all 0.3s',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    transform: 'translateY(-8px)',
+                    boxShadow: 6,
+                  },
+                }}
+              >
+                <CardContent sx={{ p: 4 }}>
+                  <Box
+                    sx={{
+                      width: 80,
+                      height: 80,
+                      borderRadius: '50%',
+                      backgroundColor: `${step.color}.main`,
+                      color: 'white',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      mx: 'auto',
+                      mb: 2,
+                    }}
                   >
-                    <i className="bi bi-search" style={{ fontSize: '2.5rem' }}></i>
-                  </div>
-                </div>
-                <div className="mb-2">
-                  <span className="badge bg-primary rounded-pill">Step 1</span>
-                </div>
-                <Card.Title className="fw-bold mb-3">Request Ride</Card.Title>
-                <Card.Text className="text-muted small">
-                  Post your ride request or offer a ride. Specify your destination, 
-                  time, and preferences.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* Step 2: Get Matched */}
-          <Col xs={6} md={3}>
-            <Card 
-              className="h-100 text-center border-0 shadow-sm position-relative overflow-hidden"
-              style={{
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                cursor: 'pointer'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-10px)';
-                e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 0.125rem 0.25rem rgba(0,0,0,0.075)';
-              }}
-            >
-              <Card.Body className="p-4">
-                <div className="mb-3">
-                  <div 
-                    className="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center"
-                    style={{ width: '80px', height: '80px' }}
-                  >
-                    <i className="bi bi-check-circle" style={{ fontSize: '2.5rem' }}></i>
-                  </div>
-                </div>
-                <div className="mb-2">
-                  <span className="badge bg-success rounded-pill">Step 2</span>
-                </div>
-                <Card.Title className="fw-bold mb-3">Get Matched</Card.Title>
-                <Card.Text className="text-muted small">
-                  Our smart matching system connects you with compatible riders or drivers 
-                  in your area.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* Step 3: Ride Together */}
-          <Col xs={6} md={3}>
-            <Card 
-              className="h-100 text-center border-0 shadow-sm position-relative overflow-hidden"
-              style={{
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                cursor: 'pointer'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-10px)';
-                e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 0.125rem 0.25rem rgba(0,0,0,0.075)';
-              }}
-            >
-              <Card.Body className="p-4">
-                <div className="mb-3">
-                  <div 
-                    className="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center"
-                    style={{ width: '80px', height: '80px' }}
-                  >
-                    <i className="bi bi-car-front" style={{ fontSize: '2.5rem' }}></i>
-                  </div>
-                </div>
-                <div className="mb-2">
-                  <span className="badge bg-info rounded-pill">Step 3</span>
-                </div>
-                <Card.Title className="fw-bold mb-3">Ride Together</Card.Title>
-                <Card.Text className="text-muted small">
-                  Enjoy your journey with community members. Share stories, build connections, 
-                  and travel sustainably.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* Step 4: Earn/Spend Coins */}
-          <Col xs={6} md={3}>
-            <Card 
-              className="h-100 text-center border-0 shadow-sm position-relative overflow-hidden"
-              style={{
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                cursor: 'pointer'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-10px)';
-                e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 0.125rem 0.25rem rgba(0,0,0,0.075)';
-              }}
-            >
-              <Card.Body className="p-4">
-                <div className="mb-3">
-                  <div 
-                    className="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center"
-                    style={{ width: '80px', height: '80px' }}
-                  >
-                    <i className="bi bi-coin" style={{ fontSize: '2.5rem' }}></i>
-                  </div>
-                </div>
-                <div className="mb-2">
-                  <span className="badge bg-warning text-dark rounded-pill">Step 4</span>
-                </div>
-                <Card.Title className="fw-bold mb-3">Earn/Spend Coins</Card.Title>
-                <Card.Text className="text-muted small">
-                  Earn Pikmi Coins for every ride you share. Use them to pay for future rides 
-                  or help others in the community.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+                    {step.icon}
+                  </Box>
+                  <Chip
+                    label={`Step ${step.step}`}
+                    color={step.color}
+                    size="small"
+                    sx={{ mb: 2 }}
+                  />
+                  <Typography variant="h6" component="h3" sx={{ mb: 2, fontWeight: 600 }}>
+                    {step.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                    {step.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
       </Container>
-    </section>
+    </Box>
   );
 }
 
 export default HowItWorks;
-

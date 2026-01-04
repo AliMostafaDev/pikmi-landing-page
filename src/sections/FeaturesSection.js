@@ -1,125 +1,140 @@
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  CircularProgress,
+  useTheme
+} from '@mui/material';
+import {
+  AccountTree,
+  AccountBalanceWallet,
+  Security,
+  LocationOn,
+  Star,
+  Notifications
+} from '@mui/icons-material';
+import { fetchLandingContent, getContent } from '../utils/api';
 
-/**
- * Features Section Component
- * Displays 6 key features of the Pikmi platform
- */
 function FeaturesSection() {
+  const theme = useTheme();
+  const [content, setContent] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadContent = async () => {
+      const contentData = await fetchLandingContent();
+      setContent(contentData);
+      setLoading(false);
+    };
+    loadContent();
+  }, []);
+
+  if (loading) {
+    return (
+      <Box sx={{ py: 8, display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  const features = [
+    { icon: <AccountTree sx={{ fontSize: 40 }} />, color: 'primary', titleKey: 'feature_1_title', descKey: 'feature_1_description' },
+    { icon: <AccountBalanceWallet sx={{ fontSize: 40 }} />, color: 'warning', titleKey: 'feature_2_title', descKey: 'feature_2_description' },
+    { icon: <Security sx={{ fontSize: 40 }} />, color: 'success', titleKey: 'feature_3_title', descKey: 'feature_3_description' },
+    { icon: <LocationOn sx={{ fontSize: 40 }} />, color: 'error', titleKey: 'feature_4_title', descKey: 'feature_4_description' },
+    { icon: <Star sx={{ fontSize: 40 }} />, color: 'info', titleKey: 'feature_5_title', descKey: 'feature_5_description' },
+    { icon: <Notifications sx={{ fontSize: 40 }} />, color: 'secondary', titleKey: 'feature_6_title', descKey: 'feature_6_description' },
+  ];
+
   return (
-    <section 
-      id="features" 
-      className="py-5"
-      style={{ background: 'linear-gradient(135deg, #7c3aed 0%, #6366f1 100%)' }}
+    <Box
+      id="features"
+      sx={{
+        py: { xs: 6, md: 10 },
+        background: theme.palette.mode === 'dark'
+          ? 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)'
+          : 'linear-gradient(135deg, #7c3aed 0%, #6366f1 100%)',
+        color: 'white',
+      }}
     >
-      <Container>
-        <div className="text-center mb-5">
-          <h2 className="display-5 fw-bold mb-3 text-white">Key Features</h2>
-          <p className="lead text-white" style={{ opacity: 0.95 }}>
-            Everything you need for seamless community ride-sharing
-          </p>
-        </div>
+      <Container maxWidth="lg">
+        <Typography
+          variant="h2"
+          component="h2"
+          align="center"
+          sx={{ mb: 2, fontWeight: 700, color: 'white' }}
+        >
+          {getContent(content, 'features_title', 'Key Features')}
+        </Typography>
+        <Typography
+          variant="h6"
+          align="center"
+          sx={{ mb: 6, color: 'rgba(255, 255, 255, 0.9)' }}
+        >
+          {getContent(content, 'features_subtitle', 'Everything you need for seamless community ride-sharing')}
+        </Typography>
 
-        <Row className="g-4">
-          {/* Feature 1: Smart Matching Algorithm */}
-          <Col xs={12} md={6} lg={4}>
-            <Card className="h-100 border-0 shadow-lg" style={{ background: 'rgba(255, 255, 255, 0.95)' }}>
-              <Card.Body className="p-4">
-                <div className="mb-3">
-                  <i className="bi bi-diagram-3 text-primary" style={{ fontSize: '3rem' }}></i>
-                </div>
-                <Card.Title className="fw-bold mb-3">Smart Matching Algorithm</Card.Title>
-                <Card.Text className="text-muted">
-                  Our advanced algorithm matches you with the perfect ride partners based on 
-                  location, destination, schedule, and preferences for optimal compatibility.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* Feature 2: Pikmi Coin Wallet */}
-          <Col xs={12} md={6} lg={4}>
-            <Card className="h-100 border-0 shadow-sm">
-              <Card.Body className="p-4">
-                <div className="mb-3">
-                  <i className="bi bi-wallet2 text-warning" style={{ fontSize: '3rem' }}></i>
-                </div>
-                <Card.Title className="fw-bold mb-3">Pikmi Coin Wallet</Card.Title>
-                <Card.Text className="text-muted">
-                  Manage your Pikmi Coins in a secure digital wallet. Track earnings, 
-                  spending, and transactions all in one convenient place.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* Feature 3: Secure Profiles */}
-          <Col xs={12} md={6} lg={4}>
-            <Card className="h-100 border-0 shadow-sm">
-              <Card.Body className="p-4">
-                <div className="mb-3">
-                  <i className="bi bi-shield-check text-success" style={{ fontSize: '3rem' }}></i>
-                </div>
-                <Card.Title className="fw-bold mb-3">Secure Profiles</Card.Title>
-                <Card.Text className="text-muted">
-                  Verified user profiles with safety ratings and background checks ensure 
-                  a secure and trustworthy community experience.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* Feature 4: Live Map Tracking */}
-          <Col xs={12} md={6} lg={4}>
-            <Card className="h-100 border-0 shadow-sm">
-              <Card.Body className="p-4">
-                <div className="mb-3">
-                  <i className="bi bi-geo-alt-fill text-danger" style={{ fontSize: '3rem' }}></i>
-                </div>
-                <Card.Title className="fw-bold mb-3">Live Map Tracking</Card.Title>
-                <Card.Text className="text-muted">
-                  Real-time GPS tracking lets you see your ride partner's location and 
-                  estimated arrival time for better coordination.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* Feature 5: Ratings System */}
-          <Col xs={12} md={6} lg={4}>
-            <Card className="h-100 border-0 shadow-sm">
-              <Card.Body className="p-4">
-                <div className="mb-3">
-                  <i className="bi bi-star-fill text-info" style={{ fontSize: '3rem' }}></i>
-                </div>
-                <Card.Title className="fw-bold mb-3">Ratings System</Card.Title>
-                <Card.Text className="text-muted">
-                  Rate and review your ride experiences to help build a reliable community 
-                  and maintain high-quality service standards.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* Feature 6: Real-Time Notifications */}
-          <Col xs={12} md={6} lg={4}>
-            <Card className="h-100 border-0 shadow-sm">
-              <Card.Body className="p-4">
-                <div className="mb-3">
-                  <i className="bi bi-bell-fill text-secondary" style={{ fontSize: '3rem' }}></i>
-                </div>
-                <Card.Title className="fw-bold mb-3">Real-Time Notifications</Card.Title>
-                <Card.Text className="text-muted">
-                  Stay updated with instant notifications about ride matches, messages, 
-                  coin transactions, and important platform updates.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+        <Grid container spacing={4}>
+          {features.map((feature, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card
+                elevation={4}
+                sx={{
+                  height: '100%',
+                  backgroundColor: theme.palette.mode === 'dark'
+                    ? 'rgba(30, 41, 59, 0.8)'
+                    : 'rgba(255, 255, 255, 0.95)',
+                  backdropFilter: 'blur(10px)',
+                  transition: 'all 0.3s',
+                  '&:hover': {
+                    transform: 'translateY(-8px)',
+                    boxShadow: 8,
+                  },
+                }}
+              >
+                <CardContent sx={{ p: 4, textAlign: 'center' }}>
+                  <Box
+                    sx={{
+                      color: `${feature.color}.main`,
+                      mb: 2,
+                      display: 'flex',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {feature.icon}
+                  </Box>
+                  <Typography
+                    variant="h6"
+                    component="h3"
+                    sx={{
+                      mb: 2,
+                      fontWeight: 600,
+                      color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                    }}
+                  >
+                    {getContent(content, feature.titleKey, `Feature ${index + 1}`)}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.8)' : 'text.secondary',
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    {getContent(content, feature.descKey, 'Feature description')}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
       </Container>
-    </section>
+    </Box>
   );
 }
 
 export default FeaturesSection;
-

@@ -1,4 +1,6 @@
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { Box } from '@mui/material';
+
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HeroSection from './sections/HeroSection';
@@ -7,30 +9,48 @@ import SolutionSection from './sections/SolutionSection';
 import HowItWorks from './sections/HowItWorks';
 import FeaturesSection from './sections/FeaturesSection';
 import ScreenshotsSection from './sections/ScreenshotsSection';
-import TeamSection from './sections/TeamSection';
 import ContactSection from './sections/ContactSection';
 
-/**
- * Pikmi Landing Page
- * A community ride-sharing platform where people help each other
- * and exchange Pikmi Coins (not real money)
- */
-function App() {
+import LoginPage from './pages/LoginPage';
+import DashboardLayout from './pages/DashboardLayout';
+import DashboardOverview from './pages/DashboardOverview';
+import ContentManagement from './pages/ContentManagement';
+import AdminManagement from './pages/AdminManagement';
+
+
+function LandingPage() {
   return (
-    <div className="App">
+    <Box>
       <Navbar />
-      <main>
+      <Box component="main">
         <HeroSection />
         <ProblemSection />
         <SolutionSection />
         <HowItWorks />
         <FeaturesSection />
         <ScreenshotsSection />
-        <TeamSection />
         <ContactSection />
-      </main>
+      </Box>
       <Footer />
-    </div>
+    </Box>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      {/* Landing Page Route */}
+      <Route path="/" element={<LandingPage />} />
+      
+      {/* Admin Dashboard Routes */}
+      <Route path="/admin/login" element={<LoginPage />} />
+      <Route path="/admin" element={<DashboardLayout />}>
+        <Route index element={<DashboardOverview />} />
+        <Route path="dashboard" element={<DashboardOverview />} />
+        <Route path="content" element={<ContentManagement />} />
+        <Route path="admins" element={<AdminManagement />} />
+      </Route>
+    </Routes>
   );
 }
 
