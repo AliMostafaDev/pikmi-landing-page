@@ -26,7 +26,6 @@ import {
   People as PeopleIcon,
   Logout as LogoutIcon,
   Menu as MenuIcon,
-  AccountCircle
 } from '@mui/icons-material';
 
 const drawerWidth = 260;
