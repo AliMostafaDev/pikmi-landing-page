@@ -48,10 +48,10 @@ function DashboardOverview() {
       setError('');
 
       const [statsRes, contentRes] = await Promise.all([
-        fetch('https://pikmi-landing-page-backend-production.up.railway.app/api/admin/dashboard/stats', {
+        fetch('http://localhost:5000/api/admin/dashboard/stats', {
           credentials: 'include',
         }),
-        fetch('https://pikmi-landing-page-backend-production.up.railway.app/api/admin/content', {
+        fetch('http://localhost:5000/api/admin/content', {
           credentials: 'include',
         }),
       ]);

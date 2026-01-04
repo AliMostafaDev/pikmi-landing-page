@@ -2,7 +2,7 @@
  * API utility functions for fetching data from backend
  */
 
-const API_BASE_URL = 'https://pikmi-landing-page-backend-production.up.railway.app';
+const API_BASE_URL = 'http://localhost:5000/api';
 
 /**
  * Fetch all landing page content
@@ -32,7 +32,7 @@ export const fetchSectionImages = async (sectionKey) => {
   }
 };
 
-/**
+/** Ali Al Mostafa //Clone the best 
  * Get content by key from content object
  */
 export const getContent = (content, key, defaultValue = '') => {
